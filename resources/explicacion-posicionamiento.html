@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionamiento en CSS - Explicación con Ejemplos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .intro p {
+            margin-bottom: 15px;
+        }
+        
+        .position-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .position-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            padding: 15px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .demo-container {
+            position: relative;
+            height: 200px;
+            background-color: #f0f4f8;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .element {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .reference-element {
+            width: 80px;
+            height: 80px;
+            background-color: #95a5a6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        
+        .code-example {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+        
+        .property {
+            color: #81e6d9;
+        }
+        
+        .value {
+            color: #fbb6ce;
+        }
+        
+        .comment {
+            color: #a0aec0;
+        }
+        
+        .comparison {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2d3748;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background-color: #4a5568;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        /* Colores específicos para cada tipo de posicionamiento */
+        .static .card-header { background-color: #3498db; }
+        .relative .card-header { background-color: #2ecc71; }
+        .absolute .card-header { background-color: #e74c3c; }
+        .fixed .card-header { background-color: #9b59b6; }
+        .sticky .card-header { background-color: #f39c12; }
+        
+        /* Estilos para los elementos de demostración */
+        .static-element {
+            background-color: #3498db;
+            position: static;
+        }
+        
+        .relative-element {
+            background-color: #2ecc71;
+            position: relative;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .absolute-element {
+            background-color: #e74c3c;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .fixed-element {
+            background-color: #9b59b6;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .sticky-element {
+            background-color: #f39c12;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .sticky-demo-container {
+            height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+        
+        .sticky-content {
+            height: 800px;
+            padding-top: 20px;
+        }
+        
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Posicionamiento en CSS</h1>
+            <p class="subtitle">Una guía visual con ejemplos prácticos</p>
+        </header>
+        
+        <section class="intro">
+            <p>El posicionamiento en CSS es una herramienta poderosa para controlar la ubicación de los elementos en la página. Existen diferentes modos de posicionamiento, cada uno con su comportamiento específico.</p>
+            <p>A continuación, exploraremos cada tipo de posicionamiento con ejemplos visuales y código de implementación.</p>
+        </section>
+        
+        <div class="position-types">
+            <!-- Static -->
+            <div class="position-card static">
+                <div class="card-header">static</div>
+                <div class="card-content">
+                    <p>Valor por defecto. Los elementos se colocan en su posición natural dentro del flujo del documento.</p>
+                    <div class="demo-container">
+                        <div class="reference-element">Referencia</div>
+                        <div class="element static-element">static</div>
+                        <div class="reference-element">Referencia</div>
+                    </div>
+                    <div class="code-example">
+                        <span class="property">position</span>: <span class="value">static</span>;<br>
+                        <span class="comment">/* No se puede modificar con top, right, bottom, left */</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Relative -->
+            <div class="position-card relative">
+                <div class="card-header">relative</div>
+                <div class="card-content">
+                    <p>Permite desplazar un elemento respecto a su posición original sin alterar el flujo del documento.</p>
+                    <div class="demo-container">
+                        <div class="reference-element">Referencia</div>
+                        <div class="element relative-element">relative</div>
+                        <div class="reference-element">Referencia</div>
+                    </div>
+                    <div class="code-example">
+                        <span class="property">position</span>: <span class="value">relative</span>;<br>
+                        <span class="property">top</span>: <span class="value">20px</span>;<br>
+                        <span class="property">left</span>: <span class="value">30px</span>;
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Absolute -->
+            <div class="position-card absolute">
+                <div class="card-header">absolute</div>
+                <div class="card-content">
+                    <p>Posiciona el elemento relativo a su contenedor posicionado más cercano o al viewport si no hay un contenedor posicionado.</p>
+                    <div class="demo-container">
+                        <div class="reference-element">Referencia</div>
+                        <div class="element absolute-element">absolute</div>
+                        <div class="reference-element">Referencia</div>
+                    </div>
+                    <div class="code-example">
+                        <span class="property">position</span>: <span class="value">absolute</span>;<br>
+                        <span class="property">top</span>: <span class="value">20px</span>;<br>
+                        <span class="property">right</span>: <span class="value">20px</span>;
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fixed -->
+            <div class="position-card fixed">
+                <div class="card-header">fixed</div>
+                <div class="card-content">
+                    <p>El elemento se fija en una posición relativa al viewport y no se mueve al hacer scroll.</p>
+                    <div class="demo-container">
+                        <div class="element fixed-element">fixed</div>
+                        <p>Este elemento está fijo en la esquina inferior derecha de la ventana.</p>
+                    </div>
+                    <div class="code-example">
+                        <span class="property">position</span>: <span class="value">fixed</span>;<br>
+                        <span class="property">bottom</span>: <span class="value">20px</span>;<br>
+                        <span class="property">right</span>: <span class="value">20px</span>;
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sticky -->
+            <div class="position-card sticky">
+                <div class="card-header">sticky</div>
+                <div class="card-content">
+                    <p>Combina características de relative y fixed. El elemento se comporta como relative hasta que alcanza un umbral, momento en que se "pega" y se comporta como fixed.</p>
+                    <div class="demo-container sticky-demo-container">
+                        <div class="sticky-content">
+                            <p>Desplázate hacia abajo para ver el comportamiento sticky:</p>
+                            <div class="element sticky-element">sticky</div>
+                            <p>Contenido adicional para permitir el desplazamiento...</p>
+                            <p>Más contenido...</p>
+                            <p>Sigue desplazándote...</p>
+                            <p>Observa cómo el elemento sticky se "pega" en la parte superior.</p>
+                            <p>Más contenido para seguir desplazando...</p>
+                            <p>Final del contenido.</p>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <span class="property">position</span>: <span class="value">sticky</span>;<br>
+                        <span class="property">top</span>: <span class="value">0</span>;
+                    </div>
+                    <p class="scroll-indicator">¡Desplázate en el cuadro de arriba para ver el efecto!</p>
+                </div>
+            </div>
+        </div>
+        
+        <section class="comparison">
+            <h2>Comparativa de Tipos de Posicionamiento</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Relativo a</th>
+                        <th>En el flujo del documento</th>
+                        <th>Se puede desplazar</th>
+                        <th>Uso común</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>static</td>
+                        <td>Flujo normal</td>
+                        <td>Sí</td>
+                        <td>No</td>
+                        <td>Elementos en flujo normal</td>
+                    </tr>
+                    <tr>
+                        <td>relative</td>
+                        <td>Su posición original</td>
+                        <td>Sí (reserva espacio)</td>
+                        <td>Sí (top, right, bottom, left)</td>
+                        <td>Ajustes menores de posición</td>
+                    </tr>
+                    <tr>
+                        <td>absolute</td>
+                        <td>Contenedor posicionado más cercano</td>
+                        <td>No</td>
+                        <td>Sí</td>
+                        <td>Elementos superpuestos, menús, tooltips</td>
+                    </tr>
+                    <tr>
+                        <td>fixed</td>
+                        <td>Viewport</td>
+                        <td>No</td>
+                        <td>Sí</td>
+                        <td>Headers, footers, botones flotantes</td>
+                    </tr>
+                    <tr>
+                        <td>sticky</td>
+                        <td>Contenedor de desplazamiento</td>
+                        <td>Sí (hasta que se "pega")</td>
+                        <td>Sí (solo en el eje definido)</td>
+                        <td>Headers de tablas, menús de navegación</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <footer>
+            <p>Explicación visual de los tipos de posicionamiento en CSS - Creado para fines educativos</p>
+        </footer>
+    </div>
+</body>
+</html>

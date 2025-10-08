@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /*Para que 1rem = 10px*/
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Cossette Titre", "sans-serif";
+    font-size: 1.6rem;
+    line-height: 1.5;
+    
+    display: flex;
+    flex-direction: column;
+
+    color: black;
+    background-image: url(../resources/araragi-and-senjougahara.jpeg);
+    background-position: center;
+    background-size: cover;
+
+    min-height: 100vh; /* el tamaño del body ocupa la pantalla completa*/ 
+
+}
+
+a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    width: 90%; /*para que el conenido no choque con los bordes*/
+  
+    margin: 2rem auto;
+    padding-bottom: max(2rem, 5%);
+  
+    /* body dijo que sus hijos sean flexibles (header, main y footer) */
+    /* al aplicar la propiedad "flex: 1" a un hijo, le decimos que ese 
+    hijo siempre tomara el mayor espacio disponible */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1rem;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+.productos-home {
+    padding: 4rem
+}
+
+.titulo-home{
+    color:blueviolet;
+    font-size: 10rem;
+}
+
+.productos-home {
+    width: 100%;
+}
+
+.contenedor-tarjeta {
+    /* solo con esto las posiciones son buenas, pero el texto está al costado de los items*/
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.tarjeta-producto {
+    background-color: #1d1a20;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 30rem;
+    color: #e5e6e8;
+    /* hacemos flexibles los elementos del article los colocamos en columna y 
+    centrados soluciona problema anterior y pone elemento uno abajo del otro dentro de la tarjeta*/
+    /* TIENE PROBLEMA:  me quedan pegados a la izquierda todos los productos*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* separacion */
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.tarjeta-producto .precio {
+    font-size: 2.2rem;
+}
+
+.tarjeta-producto button {
+    width: 6rem;
+    height: 3rem;
+}
+
+.tarjeta-producto-prueba {
+    background-color: #1d1a20;
+
+    padding: 2rem;
+    padding-bottom: 0.5rem;
+    border-radius: 1rem;
+    
+    width: auto;
+    color: #e5e6e8;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* separacion */
+    gap: 0rem;
+}
+
+/* footer */
+header,
+footer {
+    width: 100%;
+  
+    /* body dijo que sus hijos sean flexibles (header, main y footer) */
+    /* al aplicar la propiedad "flex: 1" a un hijo, le decimos que ese 
+    hijo siempre tomara el mayor espacio disponible */
+    flex: 0; /*sino el footer crece un monton y queda feo*/
+  
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 1rem; /* espacio para que no quede pegado a los bordes de la pagina*/
+    background-color: grey;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    
+    list-style: none;
+}
+
+
+/* Contacto */
+.seccion-contacto {
+  width: 100%;
+
+  margin: 2rem auto;
+}
+
+.titulo-contacto {
+  font-size: 4rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.form {
+  background-color: grey;
+  padding: 5rem;
+  border-radius: 1rem;
+
+  width: auto; /* esto va por default es lo que hace que se adapte*/
+  max-width: 60rem;
+  margin: auto; /* esto va por default */
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.campo-form label {
+  font-size: 2.1rem;
+}
+
+.campo-form input,
+.campo-form textarea {
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.form button {
+  background-color: orange;
+  color: #e5e6e8;
+  border: none;
+  padding: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/*nav*/
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-bar{
+    background-color: grey;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 2rem;
+}
+
+.nav-list{
+    list-style: none
+}
+
+.div-logo{
+    margin-left: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.header-nav ul li a {
+    text-decoration: none;
+    font-size: 3rem;
+    
+    color: inherit;
+    display: inline-block; /*para engordar los links, que ocupen más espacio*/
+    padding: 2rem
+}
+
+.header-nav{
+    margin-right: 2rem;
+}
+
+.header-nav, ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem;
+}
+
+
+/*MEDIO QUERY*/
+@media (max-width: 758px){
+    header,
+    footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contenedor-tarjeta{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

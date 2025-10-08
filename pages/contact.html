@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cossette+Titre:wght@400;700&display=swap" rel="stylesheet">
+    <title>Index</title>
+
+</head>
+
+<body>
+    <header>
+        <section class="nav-bar">
+            <div>
+                <a href="../index.html">
+                    <img src="../resources/yinhe_logo_jjyamada.png" alt="Logo de Yinhe tenis de mesa">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li> 
+                        <a href="../index.html">Inicio</a>
+                    </li>
+
+                    <li> 
+                        <a href="./contact.html">Contactos</a>
+                    </li>
+
+                    <li> 
+                        <a href="https://www.youtube.com/watch?v=_cZk8vfzcj0">Best Anime</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <section class="seccion-contacto">
+            <h1 class="titulo-contacto">Contacto</h1>
+            <form 
+                class="form"
+                action="https://formspree.io/f/mqadwylo" 
+                method="POST"
+            >
+                <div class="campo-form">
+                    <label   label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="campo-form">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="campo-form">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea>
+                </div>
+                
+                <div class="campo-form">
+                    <label for="motivo">Preferencias de contacto:</label>
+
+                    <select id="motivo" name="Medio">
+                      <option value="">-- Seleccioná una opción --</option>
+                      <option value="Telefono">Telefono</option>
+                      <option value="Email">Email</option>
+                      <option value="WhatsApp">WhatsApp</option>
+                    </select>
+                </div>
+
+                <button type="submit">Enviar</button>            
+            </form>
+        </section>
+    
+        <section>
+            <table border="1">
+                <caption>Datos</caption>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Mensaje</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Mario</td>
+                            <td>marioxd@gmail.com</td>
+                            <td>Ayuda xd</td>
+                        </tr>
+
+                        <tr>
+                            <td>Genesis</td>
+                            <td>pelichita@gmail.com</td>
+                            <td>soy linda</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2">personas totales</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Table tennis Monogatari </p>
+        <a href="./contact.html">Contactanos</a>
+        <nav>
+          <ul>
+            <li>WhatsApp</li>
+            <li>Discord</li>
+          </ul>
+        </nav>
+      </footer>
+</body>
+</html>
+    
