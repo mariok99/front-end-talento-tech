@@ -1,4 +1,3 @@
-import { obtener_carrito } from "./api_carrito.js";
 import { agregarListenerAContenedorParaBotones } from "../utils/agregar_evento_a_contenedor.js";
 import { agregar_a_carrito, mostrar_cant_productos_en_carrito } from "./funciones_carrito_productos.js";
 import { mostrarMensaje } from "./ui.js";
