@@ -1,0 +1,21 @@
+[
+{
+    "productoId" : "1",
+    "nombre" : "Big Dipper V", 
+    "img" : "big_dipper.avif",
+    "precio" : "15", 
+    "descripcion" : "Goma pegagosa con tecnología MaxTense. Perfecta para forehand. Nivel profesional."},
+{
+    "productoId" : "2",
+    "nombre" : "Jupiter 3", 
+    "img" : "jupiter3_asia.png",
+    "precio" : "12", 
+    "descripcion" : "Goma con gran adherencia y control. Ideal para jugadores intermedios."},
+{
+    "productoId" : "3",
+    "nombre" : "Blue Moon 12", 
+    "img" : "blue_moon_12.png",
+    "precio" : "18", 
+    "descripcion" : "Goma diseñada para velocidad y efectos. Recomendado para jugadores avanzados."
+}
+]

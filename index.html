@@ -32,6 +32,14 @@
                     <li> 
                         <a href="https://www.youtube.com/watch?v=mlQbrv9dpSY">Best Anime</a>
                     </li>
+                    <li>
+                        <a href="./pages/carrito.html">
+                            <img src="../img/carrito.png" class="carrito-icono">
+                                <!-- etiqueta en linea, se pueden poner uno al lado del otro-->
+                                <span id="contador-carrito">0</span>
+                            </img>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </section>
@@ -39,47 +47,20 @@
 
     <main>
         <section class="productos-home">
-            <h1> Nuestros mejores productos </h1>
+            <h1 id='titulo-principal'> Nuestros mejores productos </h1>
 
-            <div class="contenedor-tarjeta">                
-                <article class="tarjeta-producto">
-                    <img class="product-information-item" src="./img/A94c8895b979948e9ae5e4305743bc7daG.jpg_.avif" width="150" height="200" alt="Gome de tenis de mesa Big Dipper">
-                    <h3>Big Dipper V</h3>
-                    <p> Goma pegagosa con tecnología MaxTense. Perfecta para forehand. Nivel profecional.</p>
-                    <p class="precio">Precio: $15</p>
-                    <button>
-                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                    </button>
-                </article>
-
-                <article class="tarjeta-producto">
-                    <img class="product-information-item" src="./img/jupiter3-asia.png" width="200" height="200" alt="Goma Jupiter 3 Asia">
-                    <h3>Jupiter3 Asia</h3>
-                    <p>Goma pegadosa con texonología MaxTense. Ideal para forehand. Nivel medio.</p>
-                    <p class="precio">Precio: $13</p>
-                    <button>
-                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                    </button>
-                </article>
-
-                <article class="tarjeta-producto">
-                    <img class="product-information-item" src="./img/battle-2-national.avif" width="200" height="200" alt="Goma Jupiter 3 Asia">
-                    <h3>Battle 2 National</h3> 
-                    <p>Goma pegagosa china clásica. Ideal para un forehand fuerte. Nivel profesional.</p> 
-                    <p class="precio">Precio: $22</p>
-                    <button>
-                        <i class="fa-solid fa-cart-shopping fa-lg"></i>
-                    </button> 
-                </article>
-                    
+            <div id="contenedor-tarjeta" class="contenedor-tarjeta">                
+                
             <div>
         </section>
 
         <h2>Pruebas de productos</h2>
         <section class="tarjeta-producto-prueba">
-            <iframe width="560" height="315" 
+            <!--
+            <iframe width="560" height="315"
             src="https://www.youtube.com/embed/c17DmMjYHw0?si=xm9UMWavO83HPQsm&amp;start=82" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>       
             <h2>Big Dipper</h2>
+            -->
         </section>        
     </main>
 
@@ -93,5 +74,6 @@
           </ul>
         </nav>
       </footer>
-</body>
+      <script type="module" src="../js/index.js"></script>
+    </body>
 </html>
