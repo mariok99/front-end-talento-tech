@@ -37,7 +37,7 @@ main {
   
     margin: 2rem auto;
     padding-bottom: max(2rem, 5%);
-  
+    gap: 2rem;
     /* body dijo que sus hijos sean flexibles (header, main y footer) */
     /* al aplicar la propiedad "flex: 1" a un hijo, le decimos que ese 
     hijo siempre tomara el mayor espacio disponible */
@@ -60,7 +60,11 @@ main h2 {
 }
 
 .productos-home {
-    padding: 4rem
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .titulo-home{
@@ -72,19 +76,22 @@ main h2 {
     width: 100%;
 }
 
-.contenedor-tarjeta {
+#contenedor-tarjeta, #contenedor-carrito {
     /* solo con esto las posiciones son buenas, pero el texto está al costado de los items*/
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     gap: 2rem;
+    margin-bottom: 2rem; /* Espacio abajo */
+
 }
 
 .tarjeta-producto {
     background-color: #1d1a20;
     padding: 1rem;
     border-radius: 1rem;
-    width: 30rem;
+    width: 25rem;
+    height: 40rem;
     color: #e5e6e8;
     /* hacemos flexibles los elementos del article los colocamos en columna y 
     centrados soluciona problema anterior y pone elemento uno abajo del otro dentro de la tarjeta*/
@@ -95,21 +102,42 @@ main h2 {
     
     /* separacion */
     gap: 1rem;
-    overflow: hidden;
 }
 
 .tarjeta-producto .precio {
     font-size: 2.2rem;
 }
 
-.tarjeta-producto button {
-    width: 6rem;
-    height: 3rem;
+/* Estilo para botón agregar-carrito */
+.agregar-carrito, .eliminar-producto, .vaciar-carrito, #total-carrito {
+    background-color: rgb(58, 5, 65);
+    color: #e5e6e8;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: "Cossette Titre", sans-serif;
 }
 
+.vaciar-carrito {
+    background-color: rgb(58, 5, 65);
+}
+
+#total-carrito{
+    background-color: rgb(224, 222, 217);
+    color: black;
+    width: 60rem;
+    text-align: center;
+}
+.img-producto{
+    width: 17rem;
+    height: 17rem;
+    object-fit: contain;
+    border-radius: 1rem;
+}
 .tarjeta-producto-prueba {
     background-color: #1d1a20;
-
     padding: 2rem;
     padding-bottom: 0.5rem;
     border-radius: 1rem;
@@ -124,7 +152,10 @@ main h2 {
     /* separacion */
     gap: 0rem;
 }
-
+.carrito-icono{
+    width: 3rem;
+    height: 3rem;
+}
 /* footer */
 header,
 footer {
@@ -139,8 +170,10 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
-
+    /* esto hace que cuando los elementos no entran en una sola fila 
+    se pongan en otra nueva, como es reverse la nueva linea se genera arriba de
+    la anterior */
+    flex-wrap: wrap-reverse; 
     padding: 1rem; /* espacio para que no quede pegado a los bordes de la pagina*/
     background-color: grey;
 }
