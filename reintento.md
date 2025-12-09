@@ -1,1 +1,0 @@
-1. Generación de los productos
