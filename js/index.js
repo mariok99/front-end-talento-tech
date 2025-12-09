@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     //que a partir de un producto del json genere todo el html para ese producto
     //mostrar_cant_productos_en_carrito();
 
-    const productos = await fetch(ruta_productos_data)
-    if (!productos.ok){
+    const res = await fetch(ruta_productos_data)
+    if (!res.ok){
         throw new Error(`error HTTP status: ${res.status}`);
     }
  
-    const productosJSON = await productos.json();
+    const productosJSON = await res.json();
     console.log("PRODUCTOS JSON:", productosJSON);
     
     generarTarjetaDeProductos_y_añadir_a_contenedor(productosJSON, contenendor_tarjetas_productos, 
