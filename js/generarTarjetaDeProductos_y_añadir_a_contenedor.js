@@ -1,4 +1,4 @@
-//import { setAttrs } from "../utils/set_attrs.js";
+import { setAttrs } from "../utils/set_attrs.js";
 
 //debería generalizar el boton que se añade a los productos
 export function generarTarjetaDeProductos_y_añadir_a_contenedor(productos, contenedor, ruta_imagenes, clase_boton, textContent_boton, clase_logo_boton) {
@@ -41,10 +41,4 @@ export function generarTarjetaDeProductos_y_añadir_a_contenedor(productos, cont
     });
 }
 
-export function setAttrs(element, attrs) {
-    Object.keys(attrs).forEach((key) => {
-        if (attrs[key] !== undefined) {
-            element.setAttribute(key, attrs[key]);
-        }
-    });
-}
+
