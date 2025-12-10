@@ -1,6 +1,6 @@
 import { agregarListenerAContenedorParaBotones } from "./utils/agregar_evento_a_contenedor.js";
 import { agregar_a_carrito } from "./funciones_carrito.js";
-//import { mostrarMensaje } from "./ui.js";
+import { mostrar_cant_productos_en_carrito } from "./funciones_carrito.js";
 import { generarTarjetaDeProductos_y_añadir_a_contenedor } from "./generarTarjetaDeProductos_y_añadir_a_contenedor.js";
 import { ruta_imagenes, ruta_productos_data } from "./rutas/rutas_productos.js";
 
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //debo traer la info del json y generar los elementos en el dom
     //todos los elementos se crean de la misma forma, entonces voy a crear una función
     //que a partir de un producto del json genere todo el html para ese producto
-    //mostrar_cant_productos_en_carrito();
+    mostrar_cant_productos_en_carrito();
 
     const res = await fetch(ruta_productos_data)
     if (!res.ok){
