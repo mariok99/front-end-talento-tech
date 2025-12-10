@@ -1,5 +1,5 @@
-import { agregarListenerAContenedorParaBotones } from "./utils/agregarListenerAContenedorParaBotones.js";
-//import { agregar_a_carrito, mostrar_cant_productos_en_carrito } from "./funciones_carrito_productos.js";
+import { agregarListenerAContenedorParaBotones } from "./utils/agregar_evento_a_contenedor.js";
+import { agregar_a_carrito } from "./funciones_carrito.js";
 //import { mostrarMensaje } from "./ui.js";
 import { generarTarjetaDeProductos_y_añadir_a_contenedor } from "./generarTarjetaDeProductos_y_añadir_a_contenedor.js";
 import { ruta_imagenes, ruta_productos_data } from "./rutas/rutas_productos.js";
@@ -24,11 +24,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         ruta_imagenes, 'agregar-carrito', "", "fa-solid fa-cart-shopping fa-lg"
     );
 
+    //estoy por acá, que funciones agregar carrito y se vea el cambio reflejado en el contador
     const accion_a_realizar_luego_del_click = 
         (producto_id, _productoHTMLElement, _mensajeExito, _mensajeError, _url) => {
             console.log("PRODUCTO ID EN ACCION A REALIZAR:", producto_id);
-            //agregar_a_carrito(productosJSON.find(p => p.productoId == producto_id));
-            //mostrarMensaje("Producto agregado al carrito", _productoHTMLElement);
+            agregar_a_carrito(productosJSON.find(p => p.productoId == producto_id));
+            console.log("Producto agregado al carrito", _productoHTMLElement);
         }
     
     agregarListenerAContenedorParaBotones("contenedor-tarjeta", "agregar-carrito","", 
