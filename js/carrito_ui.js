@@ -7,6 +7,7 @@ import { agregarListenerAContenedorParaBotones } from "./utils/agregar_evento_a_
 import { eliminar_productos, eliminar_producto, 
     mostrar_cant_productos_en_carrito, calcular_total_carrito } from "./funciones_carrito.js";
 import { set_attrs } from "./utils/set_attrs.js";
+import { obtener_carrito } from "./carrito_api/carrito_api.js";
 //el problema ocurre por que el carrito que obtengo ya tiene la ruta modificada
 document.addEventListener("DOMContentLoaded", () => {
     //renderiza carrito, voy a usar la funcion que usé antes en index.js
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const producto_con_cantidad = carrito.map(item => ({ ...item.producto, cantidad: item.cantidad }));
+    const producto_con_cantidad = obtener_carrito();
     mostrar_cant_productos_en_carrito();
     generarTarjetaDeProductos_y_añadir_a_contenedor(producto_con_cantidad, contenedor_carrito, ruta_imagenes, 'eliminar-producto', "Eliminar del carrito", "");
     mostrar_total_carrito();

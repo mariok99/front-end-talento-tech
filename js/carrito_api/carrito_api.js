@@ -6,6 +6,7 @@ export const guardar_carrito = (carrito) => {
 };
 
 export const obtener_carrito = () => {
+    console.log("OBTENIENDO CARRITO:", localStorage.getItem(KEY) || []);
     return JSON.parse(localStorage.getItem(KEY)) || [];
 };
 

@@ -6,12 +6,10 @@ export const estaVacio = () => {
     return carrito.length === 0;
 }
 export  const agregar_a_carrito = (producto) => {
-    let carrito = obtener_carrito();
-    const producto_a_agregar = carrito.find(producto_en_carrito => {
-        producto_en_carrito.productoId === producto.productoId
-    });
+    
+    const carrito = obtener_carrito();
 
-    if(estaEnCarrito(producto_a_agregar)){
+    if(!estaEnCarrito(producto)){
         carrito.push({...producto, cantidad: 1});
     }
     else{
@@ -28,7 +26,6 @@ export  const agregar_a_carrito = (producto) => {
 
 export const mostrar_cant_productos_en_carrito = () => {
     actualizar_contador_carrito(cantidad_prod_carrito(obtener_carrito()));
-    console.log(obtener_carrito());
 }
 
 //le mando producto para que se mantenga el mismo parametro para todas las funciones
@@ -36,7 +33,7 @@ export const eliminar_producto = (producto_id) => {
     let carrito = obtener_carrito();
     //tengo que buscar el producto y ver su cantidad
     //si es mayor o igual a 2 disminuyo la cantidad
-    const producto_en_carrito = carrito.find(p => p.producto.productoId == producto_id);
+    const producto_en_carrito = carrito.find(p => p.productoId == producto_id);
     let cantidad_total = 0;
     if(cantidad_prod_carrito(carrito) == 0){
         const contenedor_carrito = document.getElementById('contenedor-carrito');
@@ -49,7 +46,7 @@ export const eliminar_producto = (producto_id) => {
     }
     else{
         //elimino el producto
-        carrito = carrito.filter(p => p.producto.productoId != producto_id);
+        carrito = carrito.filter(p => p.productoId != producto_id);
     }
     guardar_carrito(carrito);
     carrito.forEach(element => {
@@ -69,18 +66,23 @@ export const calcular_total_carrito = () => {
     const carrito = obtener_carrito();
     let total = 0;
     carrito.forEach(item => {
-        total += (item.producto.precio * item.cantidad)});
+        total += (item.precio * item.cantidad)});
     return total;
 }
 
+//true si está en el carrito
 function estaEnCarrito(producto_a_agregar) {
-    return producto_a_agregar === undefined;
+    let carrito = obtener_carrito();
+    const busqueda_en_carrito = carrito.find(producto_en_carrito => {
+        producto_en_carrito.productoId === producto_a_agregar.productoId
+    });
+    return busqueda_en_carrito !== undefined;
 }
 
 function cantidad_prod_carrito(carrito) {
     let cantidad_total = 0;
-    carrito.forEach(element => {
-        cantidad_total += element.cantidad;
+    carrito.forEach(prod => {
+        cantidad_total += prod.cantidad;
     });
     return cantidad_total;
 }
