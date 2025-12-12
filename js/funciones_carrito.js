@@ -6,19 +6,18 @@ export const estaVacio = () => {
     return carrito.length === 0;
 }
 export  const agregar_a_carrito = (producto) => {
-    
-    const carrito = obtener_carrito();
-
-    if(!estaEnCarrito(producto)){
-        carrito.push({...producto, cantidad: 1});
-    }
-    else{
+    let carrito = obtener_carrito();
+    if(estaEnCarrito(producto)){
+        console.log('El producto ya está en el carrito, se aumenta la cantidad');
         carrito = carrito.map(p => {
             if(p.productoId === producto.productoId){
                 p.cantidad += 1;
             }
             return p;
         });
+    }
+    else{
+        carrito.push({...producto, cantidad: 1});
     }
     guardar_carrito(carrito);
     actualizar_contador_carrito(cantidad_prod_carrito(carrito));
@@ -74,8 +73,11 @@ export const calcular_total_carrito = () => {
 function estaEnCarrito(producto_a_agregar) {
     let carrito = obtener_carrito();
     const busqueda_en_carrito = carrito.find(producto_en_carrito => {
-        producto_en_carrito.productoId === producto_a_agregar.productoId
+        console.log("AGREGAR: ", producto_a_agregar.productoId, 
+            "EN CARRITO: ", producto_en_carrito.productoId, "IGUALES: ", producto_en_carrito.productoId === producto_a_agregar.productoId);
+        return producto_en_carrito.productoId === producto_a_agregar.productoId
     });
+    console.log("esta en carrito?: ", busqueda_en_carrito);
     return busqueda_en_carrito !== undefined;
 }
 
